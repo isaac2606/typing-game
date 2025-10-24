@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1> Choose your choice </h1>
+        <div>
+            <button class="personalTextBtn" id="personalTextBtn">Personal Text</button>
+            <button class="randomtextBtn" id="randomTextBtn">Random Text</button>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label"> Custom Time</div>
+            <input type="number" placeholder="Enter custom time" class="stat-value" id="CustomTimer">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const personalTextBtn=document.getElementById("personalTextBtn");
+    const randomtextBtn=document.getElementById("randomTextBtn");
+    const customTimer=document.getElementById("customTimer");
+
+    function selectText(){
+        window.location.href="tracker.html";
+    }
+
+    personalTextBtn.addEventListener("click",selectText);
+</script>
