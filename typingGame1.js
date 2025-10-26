@@ -122,6 +122,7 @@ function inputText(){
         let typedChar=writing_area_text.charAt(counter);
         textInputed.push(typedChar);
         
+        
         if(typedChar === letters[counter]){
             currentChar.style.backgroundColor="green";
             currentChar.style.color="white";
