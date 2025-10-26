@@ -1,12 +1,13 @@
 
 const texts = [
-            "The blue cat danced under the rain while humming a forgotten tune.",
+            
             "Golden sunlight filtered through ancient trees as birds sang their morning songs.",
             "Mountains stood tall against the horizon painting shadows across the valley floor.",
             "Waves crashed against the shore creating rhythms that echoed through time."
         ];
 
 let letters = [];
+let words=[];
 let textInputed=[];
 let indexs=0;
 let counter=0;
@@ -31,18 +32,25 @@ function initializeGame(){
     paragraph.innerHTML="";
     
     
-
+    let wordContainer=document.createElement("div");
+    wordContainer.classList.add("wordContainer");
     letters.forEach((letter,index)=>{
         const span=document.createElement("span");
-        if(letter===" "){
-            span.innerHTML="&nbsp";
-        }else{
-            span.textContent=letter;
-        }
         span.classList.add(`letter`);
         span.classList.add(`letter-${index}`)
-        paragraph.appendChild(span);
+        if(letter===" "){
+            span.innerHTML="&nbsp";
+            wordContainer.appendChild(span);
+            paragraph.appendChild(wordContainer);
+            wordContainer=document.createElement("div");
+        }else{
+            span.textContent=letter;
+            wordContainer.appendChild(span);
+
+        }
+          
     })
+    paragraph.appendChild(wordContainer);
     document.querySelector(`span.letter-${0}`).classList.add("typedBox");
 };
 
@@ -122,7 +130,6 @@ function inputText(){
         let typedChar=writing_area_text.charAt(counter);
         textInputed.push(typedChar);
         
-        
         if(typedChar === letters[counter]){
             currentChar.style.backgroundColor="green";
             currentChar.style.color="white";
@@ -149,6 +156,16 @@ function calculateWPM(){
         wpm.textContent = 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
