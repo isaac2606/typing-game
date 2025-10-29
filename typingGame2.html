@@ -4,29 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="typingGame1.css">
+    <style>
+        .input_area{
+         width: 100%;
+            padding: 18px;
+            font-size: 1.15em;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, #faf8f5, #f0ebe5);
+            border: 3px solid #8B4513;
+            border-radius: 12px;
+            color: #2d2d2d;
+            outline: none;
+            transition: all 0.3s;
+            resize: none;
+            box-shadow: inset 0 2px 8px rgba(139, 69, 19, 0.1);
+        }
+        h1{
+            text-align: center;
+        }
+        .controls{
+            margin:20px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <h1> Choose your choice </h1>
-        <div>
-            <button class="personalTextBtn" id="personalTextBtn">Personal Text</button>
-            <button class="randomtextBtn" id="randomTextBtn">Random Text</button>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label"> Custom Time</div>
-            <input type="number" placeholder="Enter custom time" class="stat-value" id="CustomTimer">
+        <div class="ornamental-border">
+            <div class="inner-container">
+
+                <div class="decorative-corner top-left"></div>
+                <div class="decorative-corner top-right"></div>
+                <div class="decorative-corner bottom-left"></div>
+                <div class="decorative-corner bottom-right"></div>
+
+                <h1> Choose your choice </h1>
+                <div class="controls">
+                    <button class="personalTextBtn" id="personalTextBtn">Personal Text</button>
+                    <button class="selectTextBtn" id="selectTextBtn">Select Text</button>
+                    <button class="randomtextBtn" id="randomTextBtn">Random Text</button>
+                </div>
+                <div id="personalTextArea">
+                    <div  id="input_area"></div>
+                    <div class="controls" id="inputControls"></div>  
+                </div>
+                <div id="selectTextArea">
+                    <div id="selectTables" class="selectTables"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 </html>
-<script>
-    const personalTextBtn=document.getElementById("personalTextBtn");
-    const randomtextBtn=document.getElementById("randomTextBtn");
-    const customTimer=document.getElementById("customTimer");
 
-    function selectText(){
-        window.location.href="tracker.html";
-    }
-
-    personalTextBtn.addEventListener("click",selectText);
-</script>
+<script  src="typingGame2.js"> </script>

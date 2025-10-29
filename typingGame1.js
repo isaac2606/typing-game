@@ -1,10 +1,5 @@
 
-const texts = [
-            
-            "Golden sunlight filtered through ancient trees as birds sang their morning songs.",
-            "Mountains stood tall against the horizon painting shadows across the valley floor.",
-            "Waves crashed against the shore creating rhythms that echoed through time."
-        ];
+const texts = JSON.parse(sessionStorage.getItem('texts')) ;
 
 let letters = [];
 let words=[];
@@ -26,10 +21,12 @@ const reset = document.getElementById("reset");
 
 
 function initializeGame(){
+    
     currentTextIndex = (currentTextIndex + 1) % texts.length;
     letters=texts[currentTextIndex].split('')
     timer.textContent=15;
     paragraph.innerHTML="";
+    
     
     
     let wordContainer=document.createElement("div");
@@ -108,8 +105,10 @@ function resetGame(){
 
 writing_area.addEventListener("input",inputText);
 function inputText(){
+
     let writing_area_text=writing_area.value;
     
+
     if(textInputed.length > writing_area_text.length){
         
         let span = document.querySelector(`span.letter-${counter+1}`);
@@ -148,40 +147,24 @@ function inputText(){
 
 }
 
-function calculateWPM(){
-    let timeElapsed = 15-Number(timer.textContent); // e.g., seconds elapsed
-    if (timeElapsed > 0) {
-        wpm.textContent = ((counter*5)/timeElapsed).toFixed(0);
-    } else {
+
+function calculateWPM() {
+    
+    let timeElapsed = (15 - Number(timer.textContent)) / 60;
+    if (timeElapsed <= 0) {
         wpm.textContent = 0;
+        return;
     }
+    let correctChars = counter - wrong_letters;
+    let wordsTyped = correctChars / 5;
+    let calculatedWPM = Math.round(wordsTyped / timeElapsed);
+    wpm.textContent = Math.max(0, calculatedWPM);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 start.addEventListener('click',startGame);
 reset.addEventListener("click",resetGame);
 
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
