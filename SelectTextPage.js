@@ -1,12 +1,15 @@
 const texts = [] ;
 const personalTextBtn=document.getElementById("personalTextBtn");
-    const randomtextBtn=document.getElementById("randomTextBtn");
-    const customTimer=document.getElementById("customTimer");
-    const input_area=document.getElementById("input_area");
-    const inputControls=document.getElementById("inputControls");
+const randomtextBtn=document.getElementById("randomTextBtn");
+const customTimer=document.getElementById("customTimer");
+const input_area=document.getElementById("input_area");
+const inputControls=document.getElementById("inputControls");
 const selectTextBtn=document.getElementById("selectTextBtn");
 const selectTextArea=document.getElementById("selectTextArea");
 const personalTextArea=document.getElementById("personalTextArea");
+const themeToggle = document.getElementById('themeToggle');
+const body=document.body;
+
     function getPersonalText(){
         selectTables.innerHTML="";
         selectTextBtn.disabled=false;
@@ -64,12 +67,12 @@ const personalTextArea=document.getElementById("personalTextArea");
         myLibrary.forEach(table=>{
             const tables=document.createElement("button");
             tables.textContent=table;
-            tables.className="tables";
+            tables.classList.add("table");
             selectTables.appendChild(tables);
             tables.addEventListener("click",()=>{
                 texts.push(table);
                 sessionStorage.setItem('texts', JSON.stringify(texts));
-                window.location.href="typingGame1.html";
+                window.location.href="typingGame.html";
             });
         });
         
@@ -80,11 +83,24 @@ const personalTextArea=document.getElementById("personalTextArea");
             texts.push(text);
             sessionStorage.setItem('texts', JSON.stringify(texts));
         })
-        window.location.href="typingGame1.html";
+        window.location.href="typingGame.html";
     };
 
-    
+const currentTheme = localStorage.getItem('theme') || 'light-theme';
+body.className = currentTheme;
+function changeTheme(){
+    if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        localStorage.setItem('theme', 'light-theme');
+        }
+    }
 
     personalTextBtn.addEventListener("click",getPersonalText);
     selectTextBtn.addEventListener("click",selectTable);
     randomtextBtn.addEventListener("click",randomText);
+    themeToggle.addEventListener('click',changeTheme);

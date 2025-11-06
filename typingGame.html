@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
-    <link rel="stylesheet" href="typingGame1.css">
+    <link rel="stylesheet" href="typingGame.css">
 </head>
 <body>
     <div class="container">
         <div class="ornamental-border">
             <div class="inner-container">
+
+                <div class="theme-toggle" id="themeToggle"></div>
+                
+                
+                    <div id="timeContainer" class="timeContainer">
+                        <div class="time-toggle" id="timeToggle"></div>
+                        
+                        
+                    </div>
+                
+                
                 <div class="decorative-corner top-left"></div>
                 <div class="decorative-corner top-right"></div>
                 <div class="decorative-corner bottom-left"></div>
                 <div class="decorative-corner bottom-right"></div>
 
                 <header>
+                    <h1>Test Your Typing Skills</h1>
                     <div class="islamic-pattern"></div>
-                    <h1>اختبار السرعة</h1>
                     <p class="tagline">Typing Speed Test</p>
                 </header>
 
                 <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-label">Time</div>
-                        <div class="stat-value" id="timer">15</div>
+                        <div class="stat-value" id="timer"></div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">WPM</div>
@@ -49,13 +60,14 @@
                 </div>
 
                 <div class="controls">
-                    <button id="start">Start Test</button>
-                    <button id="reset">Reset</button>
+                    <button class="controlBtn" id="start">Start Test</button>
+                    <button class="controlBtn" id="reset">Reset</button>
+                    <button class="controlBtn" id="back" >back</button>
                     
                 </div>
             </div>
         </div>
     </div>
-<script type="module" src="typingGame1.js"></script>
+<script type="module" src="typingGame.js"></script>
 </body>
 </html>
