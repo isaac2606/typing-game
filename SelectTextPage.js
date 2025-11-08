@@ -18,7 +18,10 @@ const body=document.body;
         const submitPersonalTextBtn=document.createElement("button");
         const addNewTextBtn=document.createElement("button");
         
-        personalTextInput.classList.add("input_area");
+        
+        personalTextInput.placeholder="Enter your custom text here...";
+        personalTextInput.id="writing_area";
+        personalTextInput.rows=4;
         submitPersonalTextBtn.textContent="submit";
         addNewTextBtn.textContent="add text";
 
@@ -30,7 +33,7 @@ const body=document.body;
 
             sessionStorage.setItem('texts', JSON.stringify(texts));
 
-            window.location.href="typingGame1.html";
+            window.location.href="typingGame.html";
         });
         addNewTextBtn.addEventListener("click",()=>{
             let personalText=personalTextInput.value;
